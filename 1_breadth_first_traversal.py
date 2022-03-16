@@ -9,8 +9,8 @@ def bft_print_i(graph, source):
         current = queue.pop(0)
         print(current)
 
-        for node in graph[current]:
-            queue.append(node)
+        for neighbour in graph[current]:
+            queue.append(neighbour)
 
 ## Recursive approach is not possible as it implements a stack structure
 

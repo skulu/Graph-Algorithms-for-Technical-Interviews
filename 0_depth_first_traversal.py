@@ -9,8 +9,8 @@ def dft_print_i(graph, source):
         current = stack.pop()
         print(current)
 
-        for i in graph[current]:
-            stack.append(i)
+        for neighbour in graph[current]:
+            stack.append(neighbour)
 
 ## Recursive approach ##
 def dft_print_r(graph, source):
