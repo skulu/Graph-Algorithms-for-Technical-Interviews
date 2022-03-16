@@ -1,38 +1,41 @@
 ## Iterative breadth first ##
 def has_path_b(graph, src, dst):
-  queue = [src]
+    queue = [src]
 
-  while len(queue) > 0:
-    current = queue.pop(0)
-    if current == dst: return True
+    while len(queue) > 0:
+        current = queue.pop(0)
+        if current == dst:
+            return True
 
-    for neighbour in graph[current]:
-      queue.append(neighbour)
-  
-  return False
+        for neighbour in graph[current]:
+            queue.append(neighbour)
+
+    return False
 
 ## Recursive depth first ##
 def has_path_d_r(graph, src, dst):
-    if src == dst: return True
+    if src == dst:
+        return True
 
     for neighbour in graph[src]:
         current = neighbour
-        result = has_path_d_r(graph,current,dst)
-        if result == True: return True
-    
+        result = has_path_d_r(graph, current, dst)
+        if result == True:
+            return True
+
     return False
 
-## Test 1
+# Test 1
 graph = {
-  'f': ['g', 'i'],
-  'g': ['h'],
-  'h': [],
-  'i': ['g', 'k'],
-  'j': ['i'],
-  'k': []
+    'f': ['g', 'i'],
+    'g': ['h'],
+    'h': [],
+    'i': ['g', 'k'],
+    'j': ['i'],
+    'k': []
 }
-print(has_path_b(graph, 'f', 'k')) # True
-print(has_path_d_r(graph, 'f', 'k')) # True
+print(has_path_b(graph, 'f', 'k'))  # True
+print(has_path_d_r(graph, 'f', 'k'))  # True
 
 # ## Test 2
 # graph = {
@@ -62,7 +65,7 @@ print(has_path_d_r(graph, 'f', 'k')) # True
 #   'w': [],
 #   'x': [],
 #   'y': ['z'],
-#   'z': [],  
+#   'z': [],
 # }
 # print(has_path_b(graph, 'v', 'w')) # True
 
@@ -72,7 +75,7 @@ print(has_path_d_r(graph, 'f', 'k')) # True
 #   'w': [],
 #   'x': [],
 #   'y': ['z'],
-#   'z': [],  
+#   'z': [],
 # }
 
 # print(has_path_b(graph, 'v', 'z')) # False
