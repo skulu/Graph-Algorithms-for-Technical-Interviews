@@ -1,5 +1,6 @@
 ## https://structy.net/problems/undirected-path
 
+
 def undirected_path(edges, node_A, node_B):
     graph = buildGraph(edges)
     return hasPath(graph, node_A, node_B)
@@ -41,8 +42,9 @@ def buildGraph(edges):
 ## Recursive solution
 def hasPath(graph, src, dst, visited=None):
     if visited is None:
-        visited = []
-    visited.append(src)
+        visited = set()
+
+    visited.add(src)
 
     if src == dst:
         return True
