@@ -4,8 +4,7 @@ def has_path_b(graph, src, dst):
 
   while len(queue) > 0:
     current = queue.pop(0)
-    if current == dst:
-      return True
+    if current == dst: return True
 
     for neighbour in graph[current]:
       queue.append(neighbour)
