@@ -23,39 +23,39 @@ def buildGraph(edges):
 
 
 ## Iterative solution ##
-# def hasPath(graph, src, dst):
-#     visited = []
-#     queue = [src]
+def hasPath(graph, src, dst):
+    visited = set()
+    queue = [src]
 
-#     while len(queue) > 0:
-#         current = queue.pop(0)
-#         visited.append(current)
-#         if current == dst:
-#             return True
-
-#         for neighbour in graph[current]:
-#             if neighbour not in visited:
-#                 queue.append(neighbour)
-
-#     return False
-
-## Recursive solution
-def hasPath(graph, src, dst, visited=None):
-    if visited is None:
-        visited = set()
-
-    if src == dst: return True
-    if src in visited: return False
-
-    visited.add(src)
-
-    for neighbour in graph[src]:
-        if neighbour in visited:
-            continue
-        elif hasPath(graph, neighbour, dst, visited) == True:
+    while len(queue) > 0:
+        current = queue.pop(0)
+        visited.add(current)
+        if current == dst:
             return True
 
+        for neighbour in graph[current]:
+            if neighbour not in visited:
+                queue.append(neighbour)
+
     return False
+
+## Recursive solution
+# def hasPath(graph, src, dst, visited=None):
+#     if visited is None:
+#         visited = set()
+
+#     if src == dst: return True
+#     if src in visited: return False
+
+#     visited.add(src)
+
+#     for neighbour in graph[src]:
+#         if neighbour in visited:
+#             continue
+#         elif hasPath(graph, neighbour, dst, visited) == True:
+#             return True
+
+#     return False
 
 
 ## Test case 1 ##
