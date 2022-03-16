@@ -6,7 +6,6 @@ def connected_components_count(graph):
     visited = set()
 
     for node in graph:
-        # if node not in visited:
         if dfs(graph, node, visited):
             count += 1
 
@@ -25,8 +24,7 @@ def dfs(graph, source, visited=None):
     visited.add(source)
 
     for current in graph[source]:
-        if current not in visited:
-            dfs(graph, current, visited)
+        dfs(graph, current, visited)
 
     return True
 
