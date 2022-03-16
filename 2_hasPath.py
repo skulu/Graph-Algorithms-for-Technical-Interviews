@@ -1,3 +1,5 @@
+## https://structy.net/problems/has-path
+
 ## Iterative breadth first ##
 def has_path_b(graph, src, dst):
     queue = [src]
