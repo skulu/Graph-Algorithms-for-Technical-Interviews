@@ -2,7 +2,7 @@
 # first.
 
 ## Iterative approach ##
-def dfs_print_i(graph, source):
+def dft_print_i(graph, source):
     stack = [source]
 
     while len(stack) > 0:
@@ -13,11 +13,11 @@ def dfs_print_i(graph, source):
             stack.append(i)
 
 ## Recursive approach ##
-def dfs_print_r(graph, source):
+def dft_print_r(graph, source):
     print(source)
     
     for current in graph[source]:
-        dfs_print_r(graph, current)
+        dft_print_r(graph, current)
 
 graph = {
     'a': ['b','c'],
@@ -28,6 +28,6 @@ graph = {
     'f': []
 }
 
-dfs_print_i(graph, 'a')
+dft_print_i(graph, 'a')
 print()
-dfs_print_r(graph, 'a')
+dft_print_r(graph, 'a')
