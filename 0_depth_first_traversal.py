@@ -1,4 +1,8 @@
-def dfs_print(graph, source):
+# Key to depth first traversal is to use a stack. You process the elements that you last added 
+# first.
+
+## Iterative approach ##
+def dfs_print_i(graph, source):
     stack = [source]
 
     while len(stack) > 0:
@@ -8,6 +12,12 @@ def dfs_print(graph, source):
         for i in graph[current]:
             stack.append(i)
 
+## Recursive approach ##
+def dfs_print_r(graph, source):
+    print(source)
+    
+    for current in graph[source]:
+        dfs_print_r(graph, current)
 
 graph = {
     'a': ['b','c'],
@@ -18,4 +28,6 @@ graph = {
     'f': []
 }
 
-dfs_print(graph, 'a')
+dfs_print_i(graph, 'a')
+print()
+dfs_print_r(graph, 'a')
