@@ -44,10 +44,10 @@ def hasPath(graph, src, dst, visited=None):
     if visited is None:
         visited = set()
 
-    visited.add(src)
+    if src == dst: return True
+    if src in visited: return False
 
-    if src == dst:
-        return True
+    visited.add(src)
 
     for neighbour in graph[src]:
         if neighbour in visited:
