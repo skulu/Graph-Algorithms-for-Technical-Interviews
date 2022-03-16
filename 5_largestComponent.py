@@ -26,29 +26,33 @@ def dfs(graph, source, visited=None):
     visited.add(source)
     size = 1
 
-    for current in graph[source]:
-        size += dfs(graph, current, visited)
-        
+    for neighbour in graph[source]:
+        size += dfs(graph, neighbour, visited)
+
     return size
 
 
 ## Iterative solution ##
 
 
-# def dfs(graph, node, visited):
-#     if node in visited:
-#         return False
-#     stack = [node]
+def dfs(graph, node, visited):
+    size = 0
 
-#     while len(stack) > 0:
-#         current = stack.pop()
-#         if current in visited:
-#             continue
-#         visited.add(current)
-#         for neighbour in graph[current]:
-#             stack.append(neighbour)
+    if node in visited:
+        return 0
+    stack = [node]
 
-#     return True
+    while len(stack) > 0:
+        current = stack.pop()
+        if current in visited:
+            continue
+        visited.add(current)
+        size += 1
+        for neighbour in graph[current]:
+            stack.append(neighbour)
+
+    return size
+
 
 graph = {0: [8, 1, 5], 1: [0], 5: [0, 8], 8: [0, 5], 2: [3, 4], 3: [2, 4], 4: [3, 2]}
 
