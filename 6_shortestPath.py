@@ -13,7 +13,6 @@ def shortest_path(edges, nodeA, nodeB):
     visited = set()
     queue = [[nodeA, 0]]
 
-
     while len(queue) > 0:
         current, pathlength = queue.pop(0)
         if current in visited:
@@ -21,13 +20,12 @@ def shortest_path(edges, nodeA, nodeB):
         visited.add(current)
 
         if current == nodeB:
-            shortest = pathlength
-            break
+            return pathlength
 
         for neighbour in graph[current]:
             queue.append([neighbour, pathlength + 1])
-    
-    return shortest
+
+    return -1
 
 
 def edge2graph(edges):
@@ -47,15 +45,9 @@ def edge2graph(edges):
     return graph
 
 
-edges = [
-  ['w', 'x'],
-  ['x', 'y'],
-  ['z', 'y'],
-  ['z', 'v'],
-  ['w', 'v']
-]
+edges = [["w", "x"], ["x", "y"], ["z", "y"], ["z", "v"], ["w", "v"]]
 
-print(shortest_path(edges, 'w', 'z')) # -> 2
+print(shortest_path(edges, "w", "z"))  # -> 2
 
 # edges = [
 #   ['a', 'c'],
